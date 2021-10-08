@@ -1,5 +1,6 @@
 package com.company;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -13,14 +14,20 @@ public class Main {
         array[1]=input.nextInt();
         System.out.println("Üçüncü sayı :");
         array[2]=input.nextInt();
-        int max=array[0];
-        int min=array[0];
-        int[] dizi=new int [2];
-        for(int i=1;i<=array.length-1;i++){
-            dizi[0]=max<array[i]?max=array[i]:max;
-            dizi[1]=min>array[i]?min=array[i]:min;
+        int temp;
+        for(int i=0;i<array.length;i++){
+            for(int j=i+1;j<array.length;j++){
+                if(array[j]>array[i]){
+                    temp=array[i];
+                    array[i]=array[j];
+                    array[j]=temp;
+                }
+            }
         }
-        System.out.println("En küçük sayı :"+dizi[1]);
-        System.out.println("En büyük sayı :"+dizi[0]);
+        System.out.println(Arrays.toString(array));
+
+
+
+
     }
 }
